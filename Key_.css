@@ -1,0 +1,42 @@
+.header > a{
+    text-decoration: none;
+    color: black;
+}
+
+.header {
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 40px;
+    font-weight: bolder;  
+}
+
+.header :hover{
+    color:  #FFBF00;
+}
+
+.body_title{
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#key {
+    display: inline-block;
+    color: red;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bolder;
+}
+
+.picDiv{
+    display: inline-block;
+    margin: 5px;
+
+}
+
+.pic {
+    width: 250px;
+    height: 250px;
+}
+
+body{
+    text-align: center;
+}
