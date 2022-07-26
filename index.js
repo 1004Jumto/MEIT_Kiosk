@@ -1,6 +1,6 @@
 let p = null;
 let texts;
-var keyword;
+var word;
 
 function mic(){
     window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -15,9 +15,11 @@ function mic(){
    };
 
    recognition.start();
+
    recognition.onstart = function() {
      makeNewTextContent();
    };
+
    recognition.onend = function() {
      recognition.start();
    };
@@ -26,19 +28,19 @@ function mic(){
      texts = Array.from(e.results).map(results => results[0].transcript).join("");
 
      texts.replace(/느낌표|강조|뿅/gi, '❗️');
-
-     keyword = JSON.stringify(texts);
-     console.log(keyword);
-
+  
      p.textContent = texts;
    };
+  
 }
   
 function check(){
-    var flag = confirm(texts+"이/가 맞습니까?");
+    var flag = confirm(texts+" 이(가) 맞습니까?");
     if(flag){
+     word = JSON.stringify(texts);
+     console.log(word);
      window.open("Key_.html", "_self");
     }
 }
-console.log(keyword);
+
 

@@ -1,7 +1,7 @@
-//////////////////////////////////////////*키워드 데이터 가져오기*////////////////////////////////////////////
+//////////////////////////////////////////*키워드 데이터 가져오기*//////////////////////////////////////
 
 
-////////////////////////////////////* json에서 메뉴 데이터 가져오기 *///////////////////////////////////////////////
+/////////////////////////////////* json에서 메뉴 데이터 가져오기 *//////////////////////////////////////
 
 var SearchedMenu = new Array();     //추출된 메뉴가 들어갈 배열
 
@@ -23,17 +23,22 @@ for(i=0; i<MenuData.length; i++){
 
 
 //////////////////////////////////*키워드가 포함된 메뉴 탐색*/////////////////////////////////////////////
-var keyword = JSON.parse(keyword);
+var keyword;
 
-var TmpObj;
-for(k=0; k < MenuData_Name.length; k++){
-    TmpObj = new Object();
-    var str = MenuData_Name[k];
-    if(str.indexOf(keyword) >= 0){
-        TmpObj.searched = str;
-        TmpObj.num = k;
-        SearchedMenu.push(TmpObj);
-    }
+function search(){
+  keyword = JSON.parse(word);
+ // keyword = texts;
+  
+  var TmpObj;
+  for(k=0; k < MenuData_Name.length; k++){
+      TmpObj = new Object();
+      var str = MenuData_Name[k];
+      if(str.indexOf(keyword) >= 0){
+          TmpObj.searched = str;
+          TmpObj.num = k;
+          SearchedMenu.push(TmpObj);
+      }
+  }
 }
 //console.log(SearchedMenu);
 
@@ -42,12 +47,12 @@ for(k=0; k < MenuData_Name.length; k++){
 
 window.onload = function(){
     
+    search();
+
     //키워드 안내 문구 출력
     var tmp = document.getElementById('key');
     //console.log(tmp);
     tmp.innerText = keyword;
-
-    //var winDom = document.querySelector("body_menu");
 
     //메뉴 출력
     for(j=0; j<SearchedMenu.length; j++){
