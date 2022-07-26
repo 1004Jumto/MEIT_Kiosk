@@ -1,4 +1,4 @@
-//////////////////////////////////////////*키워드 데이터 가져오기*//////////////////////////////////////
+var keyword;
 
 
 /////////////////////////////////* json에서 메뉴 데이터 가져오기 *//////////////////////////////////////
@@ -6,7 +6,7 @@
 var SearchedMenu = new Array();     //추출된 메뉴가 들어갈 배열
 
 var MenuData = new Array();  
-var MenuData_Name = new Array();   //json에서 가져온 메뉴 이름 배열
+var MenuData_Name = new Array();     //json에서 가져온 메뉴 이름 배열
 var MenuData_URL = new Array();      //json에서 가져온 메뉴 그림 배열
 var MenuData_Price = new Array();    //json에서 가져온 메뉴 가격 배열
 
@@ -17,17 +17,10 @@ for(i=0; i<MenuData.length; i++){
     MenuData_URL[i] = MenuData[i].PictureUrl;
     MenuData_Price[i] = MenuData[i].price;
 }
-//console.log(MenuData_Name);
-//console.log(MenuData_Price);
-//console.log(MenuData_URL);
-
 
 //////////////////////////////////*키워드가 포함된 메뉴 탐색*/////////////////////////////////////////////
-var keyword;
 
 function search(){
-  keyword = JSON.parse(word);
- // keyword = texts;
   
   var TmpObj;
   for(k=0; k < MenuData_Name.length; k++){
@@ -40,8 +33,6 @@ function search(){
       }
   }
 }
-//console.log(SearchedMenu);
-
 
 ///////////////////////////////*탐색한 메뉴 윈도우에 출력 *///////////////////////////////////////////////
 
@@ -51,7 +42,6 @@ window.onload = function(){
 
     //키워드 안내 문구 출력
     var tmp = document.getElementById('key');
-    //console.log(tmp);
     tmp.innerText = keyword;
 
     //메뉴 출력
@@ -62,9 +52,6 @@ window.onload = function(){
         var winPic = document.createElement('img');
         winPic.src = MenuData_URL[SearchedMenu[j].num];
         winPic.className = "pic";
-
-      //  winDom.append(winPic);
-      //  console.log(winDom);
         
         winDiv.append(winPic);
         console.log(winDiv);

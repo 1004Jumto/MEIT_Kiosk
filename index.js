@@ -1,6 +1,5 @@
 let p = null;
 let texts;
-var word;
 
 function mic(){
     window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -11,6 +10,7 @@ function mic(){
 
    let makeNewTextContent = function() {
      p = document.createElement('p');
+     p.className = "bridge";
      document.querySelector('.words').appendChild(p);
    };
 
@@ -37,8 +37,6 @@ function mic(){
 function check(){
     var flag = confirm(texts+" 이(가) 맞습니까?");
     if(flag){
-     word = JSON.stringify(texts);
-     console.log(word);
      window.open("Key_.html", "_self");
     }
 }
