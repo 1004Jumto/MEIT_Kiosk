@@ -7,14 +7,14 @@ var SearchedMenu = new Array();     //추출된 메뉴가 들어갈 배열
 var MenuData = new Array();  
 var MenuData_Name = new Array();     //json에서 가져온 메뉴 이름 배열
 var MenuData_URL = new Array();      //json에서 가져온 메뉴 그림 배열
-var MenuData_Price = new Array();    //json에서 가져온 메뉴 가격 배열
+var MenuData_Category = new Array();    //json에서 가져온 메뉴 가격 배열
 
 MenuData = JSON.parse(jsonTmp);      //JSON형태로 저장된 메뉴데이터를 자바스크립트로 다시 파싱
 
 for(i=0; i<MenuData.length; i++){
     MenuData_Name[i] = MenuData[i].name;
     MenuData_URL[i] = MenuData[i].PictureUrl;
-    MenuData_Price[i] = MenuData[i].price;
+    MenuData_Category[i] = MenuData[i].category;
 }
 
 //////////////////////////////////*키워드가 포함된 메뉴 탐색*/////////////////////////////////////////////
@@ -53,12 +53,15 @@ window.onload = function(){
         var winPic = document.createElement('img');
         winPic.src = MenuData_URL[SearchedMenu[j].num];
         winPic.className = "pic";
-        
+
+        var winCat = document.createElement('span')
+        winCat.className = "cate";
+        winCat.innerText = "분류 > " + MenuData_Category[SearchedMenu[j].num];
+
         winDiv.append(winPic);
-        console.log(winDiv);
+        winDiv.append(winCat);
         
         document.body.append(winDiv);    
-   
     }
 }
 
